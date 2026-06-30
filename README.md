@@ -1,129 +1,56 @@
-# synapse - shared UI experiment
+# Welcome to your Expo app 👋
 
-## Development Setup
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
 
-- Intellij with KMP Plugin and Android SDKs + emulators
-- If facing **SDK iPhones not found**:
-  - RUN`sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer`
+## Get started
 
-## For AI Coding Agents
+1. Install dependencies
 
-This project uses [`AGENTS.md`](./AGENTS.md) as the single source of truth for agent instructions — compatible with Claude Code, Gemini CLI, Codex, Cursor, and any tool that supports the [AGENTS.md open standard](https://agents.md).
+   ```bash
+   npm install
+   ```
 
-> `CLAUDE.md` is auto-generated from `AGENTS.md` during Gradle sync and is git-ignored. **Edit `AGENTS.md` only.**
+2. Start the app
 
----
+   ```bash
+   npx expo start
+   ```
 
-A Kotlin Multiplatform application for conversing with AI models, featuring cross-platform mobile support (Android &
-iOS) with a Go backend.
+In the output, you'll find options to open the app in a
 
-**Author**: [alwinsDen.com](https://alwinsden.com)
+- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
+- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
+- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
+- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
 
-## Overview
+You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-Project Synapse is a modern multiplatform chat application that enables users to interact with various AI models. Built
-with Kotlin Multiplatform, it shares business logic across Android and iOS while maintaining native platform
-experiences.
+## Get a fresh project
 
-## Features
-
-- **Multi-Model Support**: Interact with different AI models (Gemini, and more)
-- **Cross-Platform**: Single codebase for Android and iOS using Compose Multiplatform
-- **Secure Authentication**: Google Sign-In with nonce-based security
-- **Rich Chat Interface**: Clean, Material 3 design with smooth interactions
-- **Fast Backend**: Go server (net/http) with Valkey caching
-- **Real-time Sync**: Efficient HTTP-based communication
-
-## Technology Stack
-
-### Frontend
-
-- **Kotlin Multiplatform**: Shared code across platforms
-- **Compose Multiplatform (v1.9.3)**: Declarative UI framework
-- **Material 3**: Modern design components
-- **Ktor Client (v3.3.3)**: HTTP communication
-
-### Backend
-
-- **Go (1.23+)**: Server using stdlib `net/http`, no framework
-- **go-redis/v9**: Valkey/Redis client for session caching
-- **google.golang.org/api/idtoken**: Google ID token verification
-- **Google Sign-In API**: OAuth 2.0 authentication
-
-### Build Tools
-
-- **Gradle**: Multi-module build system
-- **BuildKonfig**: Build-time configuration management
-- **CocoaPods**: iOS dependency management
-
-## Prerequisites
-
-- **JDK 11** or higher
-- **Android Studio** (for Android development)
-- **Xcode 14+** (for iOS development, macOS only)
-- **Go 1.23+** (for backend development)
-- **Valkey/Redis** server (for backend caching)
-
-## Getting Started
-
-### 1. Clone the Repository
+When you're ready, run:
 
 ```bash
-git clone git@github.com:alwinsDen/Project-Synapse.git
-cd Project-Synapse
+npm run reset-project
 ```
 
-### 2. External dependencies
+This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
 
-* Live PSQL server (CLI / Postgres.app) [else could give Connection Refused error.]
-* Valkey CLI setup and running local server.
+### Other setup steps
 
-### 3. Configure Secrets
+- To set up ESLint for linting, run `npx expo lint`, or follow our guide on ["Using ESLint and Prettier"](https://docs.expo.dev/guides/using-eslint/)
+- If you'd like to set up unit testing, follow our guide on ["Unit Testing with Jest"](https://docs.expo.dev/develop/unit-testing/)
+- Learn more about the TypeScript setup in this template in our guide on ["Using TypeScript"](https://docs.expo.dev/guides/typescript/)
 
-Copy `refer.secret.properties` to `secret.properties` and fill in your credentials:
+## Learn more
 
-```bash
-cp refer.secret.properties secret.properties
-# Edit secret.properties with your API keys
-```
+To learn more about developing your project with Expo, look at the following resources:
 
-Required keys:
+- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
+- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
 
-- `CLIENT_ID_GOOGLE_AUTH`: Google OAuth client ID
-- `KTOR_ENTRY_URL`: Backend server URL
-- `IOS_CLIENT_ID`: iOS-specific Google client ID
-- `IOS_REVERSE_CLIENT_ID`: iOS URL scheme
+## Join the community
 
-### 4. Start the Backend Server
+Join our community of developers creating universal apps.
 
-```bash
-cp server/.env.example server/.env
-# Edit server/.env with your credentials
-make -C server run
-```
-
-Or with Docker:
-```bash
-cd server && docker-compose up
-```
-
-Server starts on `http://localhost:3001` by default.
-
-### 5. Build Mobile Apps
-
-**Android:**
-
-```bash
-./gradlew :composeApp:assembleDebug
-```
-
-## Contact
-
-**Alwin's Den**
-
-- Website: [alwinsden.com](https://alwinsden.com)
-- GitHub: [@alwinsDen](https://github.com/alwinsDen)
-
----
-
-Built with using Kotlin Multiplatform
+- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
+- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
